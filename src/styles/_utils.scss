@@ -1,0 +1,26 @@
+@import "./utils.text";
+@import "./utils.spacing";
+@import "./utils.color";
+
+@mixin flex-col-cen-cen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-col-cen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin flex-direction($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin font-icon($marginTop:0px) {
+    font-size: 25px;
+    margin-top: $marginTop;
+}

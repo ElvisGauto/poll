@@ -1,0 +1,19 @@
+@import "../../../../styles/utils";
+
+:host { width: 100%; height: 100%; position: absolute;}
+
+.poll {
+    width: 100%;
+    height: 100%;
+    @include flex-col-cen;
+    &__container {
+        width: 100%;
+        height: 100%;   
+        position: absolute;
+        color: #fff;
+        @include flex-col-cen-cen;
+        &__paragraph {
+            width: 530px;
+        }
+    }
+}
