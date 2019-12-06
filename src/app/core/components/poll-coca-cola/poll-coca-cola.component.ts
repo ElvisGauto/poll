@@ -13,7 +13,6 @@ export class PollCocaColaComponent implements OnInit {
   }
 
   save(data) {
-    console.log(data);
   }
 
 }
