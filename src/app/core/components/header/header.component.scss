@@ -1,0 +1,21 @@
+@import "../../../../styles/utils";
+
+.divValues {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 25px;
+    color: #fff;
+    background: url('../../../../assets/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include flex-col-cen-cen;
+    &__radios {
+        @include flex-direction(row);
+        &__divLabel {
+            @include flex-direction(column);
+        }
+        &__divNotLabel {
+            width: 68px;
+        }
+    }
+}

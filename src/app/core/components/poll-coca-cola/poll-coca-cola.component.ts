@@ -12,4 +12,8 @@ export class PollCocaColaComponent implements OnInit {
   ngOnInit() {
   }
 
+  save(data) {
+    console.log(data);
+  }
+
 }
