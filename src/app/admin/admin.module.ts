@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ListPollsComponent } from './list-polls/list-polls.component';
-import { AppRoutingModule } from '../app-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
-      ListPollsComponent
+    ListPollsComponent
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    SharedModule
   ],
   exports: [
     ListPollsComponent
