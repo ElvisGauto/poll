@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   exports: [
     LoginComponent,

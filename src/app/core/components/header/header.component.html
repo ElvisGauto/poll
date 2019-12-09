@@ -1,23 +1,41 @@
 <div class="divValues">
-    <h4>Elija una de estas opciones</h4>
-    <div class="divValues__radios">
-        <div class="divValues__radios__divLabel">
-            <div><input type="radio">1</div>
-            <label>En <br>desacuerdo</label>
-        </div> 
-        <div class="divValues__radios__divNotLabel">
-            <input type="radio">2
-        </div> 
-        <div class="divValues__radios__divLabel">
-            <div><input type="radio">3</div>
-            <label>De <br>acuerdo</label>    
-        </div>
-        <div class="divValues__radios__divNotLabel">
-            <input type="radio">4
-        </div>
-        <div class="divValues__radios__divLabel">
-            <div><input type="radio">5</div>
-            <label>Totalmente<br> de acuerdo</label>
+   <nav class="divValues__navbar">
+       <div class="divValues__navbar__title">
+        <span routerLink="/pollCocaCola">Encuestas Coca-Cola</span>
+       </div>
+       <div class="divValues__navbar__items" *ngIf="user$ | async as user">
+            <ul class="divValues__navbar__items__ul">
+                <li *ngIf="user.admin" (click)="redirect()">
+                    Lista de Encuestas
+                </li>
+                <li (click)="singOut()">
+                    Salir
+                </li>
+            </ul>           
+       </div>
+   </nav>
+    <h4 *ngIf="!flag">Listas de Encuestas Terminadas</h4>
+    <h4 *ngIf="flag">Puede elejir una de estas opciones</h4>
+    <div *ngIf="flag">
+        <div class="divValues__radios">
+            <div class="divValues__radios__divLabel">
+                <div>1</div>
+                <label>En <br>desacuerdo</label>
+            </div> 
+            <div class="divValues__radios__divNotLabel">
+                2
+            </div> 
+            <div class="divValues__radios__divLabel">
+                <div>3</div>
+                <label>De <br>acuerdo</label>    
+            </div>
+            <div class="divValues__radios__divNotLabel">
+                4
+            </div>
+            <div class="divValues__radios__divLabel">
+                <div>5</div>
+                <label>Totalmente<br> de acuerdo</label>
+            </div>
         </div>
     </div>
 </div>

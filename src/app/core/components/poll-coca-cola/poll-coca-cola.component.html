@@ -1,55 +1,55 @@
-<app-header></app-header>
+<app-header [flag]="flag"></app-header>
 <div class="poll">
     <div class="poll__container">
         <form #fPoll="ngForm" class="poll__container__form" (ngSubmit)="save(fPoll.value)">
-            <div class="form-group poll__container__form__containerDiv--first">
+            <div class="form-group poll__container__form__containerDiv">
                 <span>Los resultados del servicio cumplieron mis expectativas</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
-                    <input type="radio" ngModel name="pollService" id="" value="1">1
-                    <input type="radio" ngModel name="pollService" id="" value="2">2
-                    <input type="radio" ngModel name="pollService" id="" value="3">3
-                    <input type="radio" ngModel name="pollService" id="" value="4">4
-                    <input type="radio" ngModel name="pollService" id="" value="5">5
+                    <input type="radio" ngModel name="poll1" id="" value="1">1
+                    <input type="radio" ngModel name="poll1" id="" value="2">2
+                    <input type="radio" ngModel name="poll1" id="" value="3">3
+                    <input type="radio" ngModel name="poll1" id="" value="4">4
+                    <input type="radio" ngModel name="poll1" id="" value="5">5
                 </div>
             </div>
-            <div class="form-group poll__container__form__containerDiv--first">
-                <span>Volveria a contratar este servicio</span>
+            <div class="form-group poll__container__form__containerDiv">
+                <span>El tiempo de respuesta fue adecuado</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
-                    <input type="radio" ngModel name="pollComeBack" id="" value="1">1
-                    <input type="radio" ngModel name="pollComeBack" id="" value="2">2
-                    <input type="radio" ngModel name="pollComeBack" id="" value="3">3
-                    <input type="radio" ngModel name="pollComeBack" id="" value="4">4
-                    <input type="radio" ngModel name="pollComeBack" id="" value="5">5
+                    <input type="radio" ngModel name="poll2" id="" value="1">1
+                    <input type="radio" ngModel name="poll2" id="" value="2">2
+                    <input type="radio" ngModel name="poll2" id="" value="3">3
+                    <input type="radio" ngModel name="poll2" id="" value="4">4
+                    <input type="radio" ngModel name="poll2" id="" value="5">5
                 </div>
             </div>
-            <div class="form-group poll__container__form__containerDiv--first">
+            <div class="form-group poll__container__form__containerDiv">
                 <span>Tuve un trato adecuado y mis dudas fueron resueltas</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
-                    <input type="radio" ngModel name="pollIsCorrect" id="" value="1">1
-                    <input type="radio" ngModel name="pollIsCorrect" id="" value="2">2
-                    <input type="radio" ngModel name="pollIsCorrect" id="" value="3">3
-                    <input type="radio" ngModel name="pollIsCorrect" id="" value="4">4
-                    <input type="radio" ngModel name="pollIsCorrect" id="" value="5">5
+                    <input type="radio" ngModel name="poll3" id="" value="1">1
+                    <input type="radio" ngModel name="poll3" id="" value="2">2
+                    <input type="radio" ngModel name="poll3" id="" value="3">3
+                    <input type="radio" ngModel name="poll3" id="" value="4">4
+                    <input type="radio" ngModel name="poll3" id="" value="5">5
                 </div>
             </div>
-            <div class="form-group poll__container__form__containerDiv--first">
+            <div class="form-group poll__container__form__containerDiv">
                 <span>Volveria a contratar este servicio</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
-                    <input type="radio" ngModel name="pollAnotherContact" id="" value="1">1
-                    <input type="radio" ngModel name="pollAnotherContact" id="" value="2">2
-                    <input type="radio" ngModel name="pollAnotherContact" id="" value="3">3
-                    <input type="radio" ngModel name="pollAnotherContact" id="" value="4">4
-                    <input type="radio" ngModel name="pollAnotherContact" id="" value="5">5
+                    <input type="radio" ngModel name="poll4" id="" value="1">1
+                    <input type="radio" ngModel name="poll4" id="" value="2">2
+                    <input type="radio" ngModel name="poll4" id="" value="3">3
+                    <input type="radio" ngModel name="poll4" id="" value="4">4
+                    <input type="radio" ngModel name="poll4" id="" value="5">5
                 </div>
             </div>
-            <div class="form-group poll__container__form__containerDiv--first">
+            <div class="form-group poll__container__form__containerDiv">
                 <span>Recomendaria este servicio a mis contactos</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
-                    <input type="radio" ngModel name="pollEnd" id="" value="1">1
-                    <input type="radio" ngModel name="pollEnd" id="" value="2">2
-                    <input type="radio" ngModel name="pollEnd" id="" value="3">3
-                    <input type="radio" ngModel name="pollEnd" id="" value="4">4
-                    <input type="radio" ngModel name="pollEnd" id="" value="5">5
+                    <input type="radio" ngModel name="poll5" id="" value="1">1
+                    <input type="radio" ngModel name="poll5" id="" value="2">2
+                    <input type="radio" ngModel name="poll5" id="" value="3">3
+                    <input type="radio" ngModel name="poll5" id="" value="4">4
+                    <input type="radio" ngModel name="poll5" id="" value="5">5
                 </div>
             </div>
             <button class="btn btn-primary">Enviar</button>

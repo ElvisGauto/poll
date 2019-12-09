@@ -1,4 +1,5 @@
 @import "../../../../styles/utils";
+@import "../../../../styles/settings.variables";
 
 .divValues {
     width: 100%;
@@ -8,11 +9,52 @@
     background: url('../../../../assets/images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    @include flex-col-cen-cen;
+    @include flex-col-cen;
+    h4 {
+        text-align: center;
+    }
+    &__navbar {
+        width: 100%;
+        justify-content: space-around;
+        @include flex-direction(column);
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 85px;
+        @media(min-width: $breakpoint-tablet) {
+            @include flex-direction(row);
+        }
+        &__title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            span {
+                cursor: pointer;
+            }
+        }
+        &__items {
+            &__ul {
+                @include flex-direction(row);
+                list-style: none;
+                padding: 0;
+                li {
+                    padding: 0 10px;
+                    cursor: pointer;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
     &__radios {
         @include flex-direction(row);
+        div {
+            text-align: center;
+        }
         &__divLabel {
             @include flex-direction(column);
+            label {
+                font-size: 12px;
+            }
         }
         &__divNotLabel {
             width: 68px;

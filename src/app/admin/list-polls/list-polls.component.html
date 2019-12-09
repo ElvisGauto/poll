@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="listPolls">
+    <div class="listPolls__list" *ngFor="let data of listPolls">
+        <div>
+            {{ data.email }}
+        </div>
+        <ul>
+            <li>{{ data.poll1 }}</li>
+            <li>{{ data.poll2 }}</li>
+            <li>{{ data.poll3 }}</li>
+            <li>{{ data.poll4 }}</li>
+            <li>{{ data.poll5 }}</li>
+        </ul>
+    </div>
+</div>

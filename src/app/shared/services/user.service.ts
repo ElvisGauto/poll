@@ -14,4 +14,8 @@ export class UserService {
       email: user.email
     })
   }
+
+  getUser(uid: string) {
+    return this.db.object(`/users/${uid}`);
+  }
 }
