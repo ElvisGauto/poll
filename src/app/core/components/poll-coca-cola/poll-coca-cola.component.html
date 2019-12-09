@@ -1,9 +1,9 @@
 <app-header [flag]="flag"></app-header>
 <div class="poll">
     <div class="poll__container">
-        <form #fPoll="ngForm" class="poll__container__form" (ngSubmit)="save(fPoll.value)">
+        <form #fPoll="ngForm" class="poll__container__form" (ngSubmit)="save(fPoll.value, typePoll)" *ngIf="typePoll$ | async as typePoll">
             <div class="form-group poll__container__form__containerDiv">
-                <span>Los resultados del servicio cumplieron mis expectativas</span>
+                <span>{{ typePoll.poll1 }}</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
                     <input type="radio" ngModel name="poll1" id="" value="1">1
                     <input type="radio" ngModel name="poll1" id="" value="2">2
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="form-group poll__container__form__containerDiv">
-                <span>El tiempo de respuesta fue adecuado</span>
+                <span>{{ typePoll.poll2 }}</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
                     <input type="radio" ngModel name="poll2" id="" value="1">1
                     <input type="radio" ngModel name="poll2" id="" value="2">2
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="form-group poll__container__form__containerDiv">
-                <span>Tuve un trato adecuado y mis dudas fueron resueltas</span>
+                <span>{{ typePoll.poll3 }}</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
                     <input type="radio" ngModel name="poll3" id="" value="1">1
                     <input type="radio" ngModel name="poll3" id="" value="2">2
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="form-group poll__container__form__containerDiv">
-                <span>Volveria a contratar este servicio</span>
+                <span>{{ typePoll.poll4 }}</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
                     <input type="radio" ngModel name="poll4" id="" value="1">1
                     <input type="radio" ngModel name="poll4" id="" value="2">2
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="form-group poll__container__form__containerDiv">
-                <span>Recomendaria este servicio a mis contactos</span>
+                <span>{{ typePoll.poll5 }}</span>
                 <div class="form-group poll__container__form__containerDiv__radio">
                     <input type="radio" ngModel name="poll5" id="" value="1">1
                     <input type="radio" ngModel name="poll5" id="" value="2">2

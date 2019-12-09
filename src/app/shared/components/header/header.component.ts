@@ -39,7 +39,11 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  redirect() {
+  redirectList() {
     this.router.navigate(['/listPolls']);
+  }
+
+  redirectPoll() {
+    this.router.navigate(['/pollCocaCola']);
   }
 }

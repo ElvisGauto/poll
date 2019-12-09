@@ -15,4 +15,8 @@ export class PollService {
   getPolls() {
     return this.db.list('/poll/');
   }
+
+  getTypePolls() {
+    return this.db.object('/typePolls/');
+  }
 }

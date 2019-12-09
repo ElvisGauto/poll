@@ -5,13 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCwDtmovLn-aAyx4Ub1DfN-SGBry2IHWEs",
-    authDomain: "poll-coca-cola.firebaseapp.com",
-    databaseURL: "https://poll-coca-cola.firebaseio.com",
-    projectId: "poll-coca-cola",
-    storageBucket: "poll-coca-cola.appspot.com",
-    messagingSenderId: "557038386506",
-    appId: "1:557038386506:web:7a3a1223bccc223c3e15b3"
+    apiKey: "AIzaSyDH94BOR1H4LVgphEbE9YWjd5jnVEZwz50",
+    authDomain: "poll-globallogic.firebaseapp.com",
+    databaseURL: "https://poll-globallogic.firebaseio.com",
+    projectId: "poll-globallogic",
+    storageBucket: "poll-globallogic.appspot.com",
+    messagingSenderId: "133934985178",
+    appId: "1:133934985178:web:b4fcf0cbc673bf58ac1ae3",
+    measurementId: "G-F1S7L4G4E9"
   }
 };
 

@@ -31,7 +31,7 @@
                 @include flex-direction(column);
                 align-items: center;
                 @media (min-width: $breakpoint-tablet) {
-                    margin-bottom: 50px;
+                    margin-bottom: 40px;
                     font-size: 21px;
                 }
                 &__radio input {

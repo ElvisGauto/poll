@@ -10,12 +10,14 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class PollCocaColaComponent implements OnInit {
 
   user$;
+  typePoll$;
 
   email: string;
 
   flag: boolean = true;
 
   dataPoll: any = [];
+
 
 
   constructor(
@@ -29,18 +31,21 @@ export class PollCocaColaComponent implements OnInit {
       if(user) {
         this.email = user.email;
       }
-    }) 
+    })
+    
+    this.typePoll$ = this.pollService.getTypePolls();
   }
 
-  save(pollData) {
+  save(pollData, dataType) {
     this.dataPoll.push({
       email: this.email,
-      poll1: pollData.poll1,
-      poll2: pollData.poll2,
-      poll3: pollData.poll3,
-      poll4: pollData.poll4,
-      poll5: pollData.poll5
+      poll1: `${dataType.poll1}: ${pollData.poll1}`,
+      poll2: `${dataType.poll2}: ${pollData.poll2}`,
+      poll3: `${dataType.poll3}: ${pollData.poll3}`,
+      poll4: `${dataType.poll4}: ${pollData.poll4}`,
+      poll5: `${dataType.poll5}: ${pollData.poll5}`
     });
+    // console.log(this.dataPoll);
     this.pollService.sendPoll(this.dataPoll);
   }
 }

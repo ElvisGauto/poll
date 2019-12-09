@@ -1,16 +1,16 @@
 {
   "hosting": {
-    "public": "dist/poll",
+  "public": "dist/poll",
     "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+    "firebase.json",
+    "**/.*",	
+    "**/node_modules/**"
+  ],
+  "rewrites": [
+  {
+    "source": "**",
+    "destination": "/index.html"
+    }
+  ]
   }
 }

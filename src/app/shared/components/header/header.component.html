@@ -1,38 +1,39 @@
-<div class="divValues">
-   <nav class="divValues__navbar">
-       <div class="divValues__navbar__title">
-        <span routerLink="/pollCocaCola">Encuestas Coca-Cola</span>
-       </div>
-       <div class="divValues__navbar__items" *ngIf="user$ | async as user">
-            <ul class="divValues__navbar__items__ul">
-                <li *ngIf="user.admin" (click)="redirect()">
-                    Lista de Encuestas
-                </li>
-                <li (click)="singOut()">
-                    Salir
-                </li>
-            </ul>           
-       </div>
-   </nav>
-    <h4 *ngIf="!flag">Listas de Encuestas Terminadas</h4>
-    <h4 *ngIf="flag">Puede elejir una de estas opciones</h4>
-    <div *ngIf="flag">
-        <div class="divValues__radios">
-            <div class="divValues__radios__divLabel">
+<div class="header">
+    <img class="header__img" src="../../../../assets/images/globallogic-background.jpg" alt="">
+    <div class="header__divValues">
+        <nav class="header__divValues__navbar">
+            <div class="header__divValues__navbar__title">
+            <span (click)="redirectPoll()">Encuestas GL</span>
+            </div>
+            <div class="header__divValues__navbar__items" *ngIf="user$ | async as user">
+                <ul class="header__divValues__navbar__items__ul">
+                    <li *ngIf="user.admin" (click)="redirectList()">
+                        <u>Lista de Encuestas</u> 
+                    </li>
+                    <li (click)="singOut()">
+                        <u>Salir</u> 
+                    </li>
+                </ul>           
+            </div>
+        </nav>
+        <h4 *ngIf="!flag">Listas de Encuestas Terminadas</h4>
+        <h4 *ngIf="flag">Puede elejir una de estas opciones</h4>
+        <div class="header__divValues__radios">
+            <div class="header__divValues__radios__divLabel">
                 <div>1</div>
                 <label>En <br>desacuerdo</label>
             </div> 
-            <div class="divValues__radios__divNotLabel">
+            <div class="header__divValues__radios__divNotLabel">
                 2
             </div> 
-            <div class="divValues__radios__divLabel">
+            <div class="header__divValues__radios__divLabel">
                 <div>3</div>
                 <label>De <br>acuerdo</label>    
             </div>
-            <div class="divValues__radios__divNotLabel">
+            <div class="header__divValues__radios__divNotLabel">
                 4
             </div>
-            <div class="divValues__radios__divLabel">
+            <div class="header__divValues__radios__divLabel">
                 <div>5</div>
                 <label>Totalmente<br> de acuerdo</label>
             </div>
