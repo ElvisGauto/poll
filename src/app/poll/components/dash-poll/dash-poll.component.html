@@ -1,0 +1,53 @@
+<form #fPoll="ngForm" class="poll__container__form" (ngSubmit)="save(fPoll.value, typePoll)">
+    <div class="form-group poll__container__form__containerDiv">
+        <span>{{ typePoll.poll1 }}</span>
+        <div class="form-group poll__container__form__containerDiv__radio">
+            <input type="radio" ngModel name="poll1" id="" value="1">1
+            <input type="radio" ngModel name="poll1" id="" value="2">2
+            <input type="radio" ngModel name="poll1" id="" value="3">3
+            <input type="radio" ngModel name="poll1" id="" value="4">4
+            <input type="radio" ngModel name="poll1" id="" value="5">5
+        </div>
+    </div>
+    <div class="form-group poll__container__form__containerDiv">
+        <span>{{ typePoll.poll2 }}</span>
+        <div class="form-group poll__container__form__containerDiv__radio">
+            <input type="radio" ngModel name="poll2" id="" value="1">1
+            <input type="radio" ngModel name="poll2" id="" value="2">2
+            <input type="radio" ngModel name="poll2" id="" value="3">3
+            <input type="radio" ngModel name="poll2" id="" value="4">4
+            <input type="radio" ngModel name="poll2" id="" value="5">5
+        </div>
+    </div>
+    <div class="form-group poll__container__form__containerDiv">
+        <span>{{ typePoll.poll3 }}</span>
+        <div class="form-group poll__container__form__containerDiv__radio">
+            <input type="radio" ngModel name="poll3" id="" value="1">1
+            <input type="radio" ngModel name="poll3" id="" value="2">2
+            <input type="radio" ngModel name="poll3" id="" value="3">3
+            <input type="radio" ngModel name="poll3" id="" value="4">4
+            <input type="radio" ngModel name="poll3" id="" value="5">5
+        </div>
+    </div>
+    <div class="form-group poll__container__form__containerDiv">
+        <span>{{ typePoll.poll4 }}</span>
+        <div class="form-group poll__container__form__containerDiv__radio">
+            <input type="radio" ngModel name="poll4" id="" value="1">1
+            <input type="radio" ngModel name="poll4" id="" value="2">2
+            <input type="radio" ngModel name="poll4" id="" value="3">3
+            <input type="radio" ngModel name="poll4" id="" value="4">4
+            <input type="radio" ngModel name="poll4" id="" value="5">5
+        </div>
+    </div>
+    <div class="form-group poll__container__form__containerDiv">
+        <span>{{ typePoll.poll5 }}</span>
+        <div class="form-group poll__container__form__containerDiv__radio">
+            <input type="radio" ngModel name="poll5" id="" value="1">1
+            <input type="radio" ngModel name="poll5" id="" value="2">2
+            <input type="radio" ngModel name="poll5" id="" value="3">3
+            <input type="radio" ngModel name="poll5" id="" value="4">4
+            <input type="radio" ngModel name="poll5" id="" value="5">5
+        </div>
+    </div>
+    <button class="btn btn-primary">Enviar</button>
+</form>
