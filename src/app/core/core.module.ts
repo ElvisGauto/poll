@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
-import { PollCocaColaComponent } from './components/poll-coca-cola/poll-coca-cola.component';
+import { PollGloballogicComponent } from './components/poll-globallogic/poll-globallogic.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { AdminModule } from '../admin/admin.module';
 import { FormsModule } from '@angular/forms';
+import { PollModule } from '../poll/poll.module';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    PollCocaColaComponent,
+    PollGloballogicComponent,
   
   ],
   imports: [
@@ -19,11 +20,13 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     AppRoutingModule,
     AdminModule,
-    FormsModule
+    FormsModule,
+    PollModule,
+    AdminModule
   ],
   exports: [
     LoginComponent,
-    PollCocaColaComponent,
+    PollGloballogicComponent,
   
   ]
 })

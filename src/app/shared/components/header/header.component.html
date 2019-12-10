@@ -3,7 +3,9 @@
     <div class="header__divValues">
         <nav class="header__divValues__navbar">
             <div class="header__divValues__navbar__title">
-            <span (click)="redirectPoll()">Encuestas GL</span>
+            <span (click)="redirectPoll()">
+                Encuesta GL
+            </span>
             </div>
             <div class="header__divValues__navbar__items" *ngIf="user$ | async as user">
                 <ul class="header__divValues__navbar__items__ul">
@@ -20,21 +22,21 @@
         <h4 *ngIf="flag">Puede elejir una de estas opciones</h4>
         <div class="header__divValues__radios">
             <div class="header__divValues__radios__divLabel">
-                <div>1</div>
+                <div><b>1</b></div>
                 <label>En <br>desacuerdo</label>
             </div> 
             <div class="header__divValues__radios__divNotLabel">
                 2
             </div> 
             <div class="header__divValues__radios__divLabel">
-                <div>3</div>
+                <div><b>3</b></div>
                 <label>De <br>acuerdo</label>    
             </div>
             <div class="header__divValues__radios__divNotLabel">
                 4
             </div>
             <div class="header__divValues__radios__divLabel">
-                <div>5</div>
+                <div><b>5</b></div>
                 <label>Totalmente<br> de acuerdo</label>
             </div>
         </div>

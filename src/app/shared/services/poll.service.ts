@@ -12,11 +12,15 @@ export class PollService {
     this.db.object(`/poll/`).update(pollData);
   }
 
+  addPolls(uid: string, poll: string) {
+    this.db.object(`/typePolls/${uid}/`).update(poll);
+  }
+
   getPolls() {
     return this.db.list('/poll/');
   }
 
-  getTypePolls() {
-    return this.db.object('/typePolls/');
+  getTypePolls(uid: string) {
+    return this.db.object(`/typePolls/${uid}/`);
   }
 }

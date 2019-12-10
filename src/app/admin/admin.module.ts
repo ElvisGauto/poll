@@ -1,19 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ListPollsComponent } from './list-polls/list-polls.component';
+import { ListPollsComponent } from './components/list-polls/list-polls.component';
 import { SharedModule } from '../shared/shared.module';
+import { CreatePollComponent } from './components/create-poll/create-poll.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    ListPollsComponent
+    ListPollsComponent,
+    CreatePollComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   exports: [
-    ListPollsComponent
+    ListPollsComponent,
+    CreatePollComponent
   ]
 })
 export class AdminModule { }

@@ -17,7 +17,6 @@ export class LoginComponent {
   }
 
   start() {
-    // this.router.navigate(['/pollCocaCola']);
     this.authService.login();
   }
 }

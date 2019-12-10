@@ -44,6 +44,6 @@ export class HeaderComponent implements OnInit {
   }
 
   redirectPoll() {
-    this.router.navigate(['/pollCocaCola']);
+    this.router.navigate(['/pollGloballogic']);
   }
 }
