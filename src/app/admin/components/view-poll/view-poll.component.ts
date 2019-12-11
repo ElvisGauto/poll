@@ -11,6 +11,7 @@ export class ViewPollComponent implements OnInit {
 
   user$;
   typePoll$;
+  typePollByIndex$;
 
   email: string;
   uid: string;
@@ -38,6 +39,11 @@ export class ViewPollComponent implements OnInit {
       this.typePoll$ = this.pollService.getTypePolls(this.uid);
       this.typePoll$.subscribe(x => {
         this.arrAll = x;
+      })
+
+      this.typePollByIndex$ = this.pollService.getTypePollsByIndex(this.uid, '2');
+      this.typePollByIndex$.subscribe(x => {
+        console.log(x);
       })
     })
   }

@@ -23,4 +23,8 @@ export class PollService {
   getTypePolls(uid: string) {
     return this.db.object(`/typePolls/${uid}/`);
   }
+
+  getTypePollsByIndex(uid: string, index: string) {
+    return this.db.object(`/typePolls/${uid}/${index}`);
+  }
 }

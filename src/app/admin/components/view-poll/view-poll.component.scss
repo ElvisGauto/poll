@@ -2,5 +2,14 @@
     &__cardPoll {
         width: 300px;
         margin-bottom: 15px;
+        &__contentData {
+            &__navData {
+                div {
+                    margin-bottom: 10px;
+                }
+            }
+        }
     }
 }
+
+// view__cardPoll__contentData__navData
