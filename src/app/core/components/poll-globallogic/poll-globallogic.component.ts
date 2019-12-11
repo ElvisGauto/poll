@@ -37,8 +37,11 @@ export class PollGloballogicComponent implements OnInit {
         this.email = user.email;
         this.uid = user.uid;
       }
+      this.typePoll$ = this.pollService.getTypePolls(this.uid);
+      this.typePoll$.subscribe(x => {
+        // console.log(x);
+      })
     })
-    this.typePoll$ = this.pollService.getTypePolls(this.uid);
   }
 
   createPoll(): void {

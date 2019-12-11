@@ -1,0 +1,12 @@
+<div class="view card-body" *ngIf="typePoll$ | async as poll">
+    <div class="view__cardPoll card" *ngFor="let data of poll">
+        <div class="card-body">
+            <div *ngFor="let title of data[0] | keyvalue">
+                <b>{{ title.value }}</b>
+            </div>
+            <div *ngFor="let polls of data[1] | keyvalue">
+                {{ polls.value }}
+            </div>
+        </div>
+    </div>
+</div>

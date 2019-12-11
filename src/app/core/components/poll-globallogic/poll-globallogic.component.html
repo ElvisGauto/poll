@@ -4,9 +4,7 @@
         <button class="btn btn-primary" (click)="createPoll()">Crear Encuesta</button>
     </div>
     <div class="poll__divPoll">
-        <div class="poll__container" *ngIf="typePoll.$value !== null">
-            <dash-poll [typePoll]="typePoll"></dash-poll>
-        </div>
+        <view-poll></view-poll>
     </div>
 </div>
     

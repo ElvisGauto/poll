@@ -1,13 +1,32 @@
 <div class="createPoll">
-    <h4>Crear Encuesta</h4>
-    <div class="createPoll__divForm">
-        <form class="createPoll__divForm__form" #fCreatePoll="ngForm" (ngSubmit)="add(fCreatePoll.value)">
-            <div class="form-group">
-                <input type="text" ngModel name="poll1">
+    <div class="createPoll__cardPoll card">
+        <div class="createPoll__cardPoll__bodyPoll card-body">
+            <h4>Crear Encuesta</h4>
+            <div class="createPoll__cardPoll__bodyPoll__divForm">
+                <form class="createPoll__cardPoll__bodyPoll__divForm__form" #fCreatePoll="ngForm" (ngSubmit)="add(fCreatePoll.value)">
+                    <div class="form-group">
+                        <div>
+                            <label for="titlePoll">Titulo: </label><br>
+                            <input type="text" ngModel name="titlePoll"><br>
+                        </div>
+                        <hr>
+                        <div>
+                            <label for="poll1">Pregunta 1: </label><br>
+                            <input type="text" ngModel name="poll1">
+                        </div>
+                        <div *ngIf="arrNewQuestion.length > 0">
+                            <div *ngFor="let q of arrNewQuestion; let i = index">
+                                <label for="poll1">Pregunta {{ i + 2 }}: </label><br>
+                                <input type="text" ngModel name="poll{{ i + 2}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa fa-plus" (click)="moreQuestion()"></i>
+                        <button class="btn btn-primary">Añadir Encuesta</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <button class="btn btn-primary">Añadir Encuesta</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
