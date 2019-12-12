@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { DashPollComponent } from './components/dash-poll/dash-poll.component';
+import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -12,7 +14,8 @@ import { DashPollComponent } from './components/dash-poll/dash-poll.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [
     DashPollComponent

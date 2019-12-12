@@ -16,6 +16,7 @@ export class PollGloballogicComponent implements OnInit {
 
   email: string;
   uid: string;
+  uidModify: string;
 
   flag: boolean = true;
 
@@ -36,11 +37,9 @@ export class PollGloballogicComponent implements OnInit {
       if(user) {
         this.email = user.email;
         this.uid = user.uid;
+        this.uidModify = this.uid.slice(5, -5);
       }
-      this.typePoll$ = this.pollService.getTypePolls(this.uid);
-      this.typePoll$.subscribe(x => {
-        // console.log(x);
-      })
+      this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
     })
   }
 

@@ -5,13 +5,15 @@ import { SharedModule } from '../shared/shared.module';
 import { CreatePollComponent } from './components/create-poll/create-poll.component';
 import { FormsModule } from '@angular/forms';
 import { ViewPollComponent } from './components/view-poll/view-poll.component';
+import { AdminDashPollComponent } from './components/admin-dash-poll/admin-dash-poll.component';
 
 
 @NgModule({
   declarations: [
     ListPollsComponent,
     CreatePollComponent,
-    ViewPollComponent
+    ViewPollComponent,
+    AdminDashPollComponent
   ],
   imports: [
     CommonModule,

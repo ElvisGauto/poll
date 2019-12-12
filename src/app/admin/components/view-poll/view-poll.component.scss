@@ -1,11 +1,41 @@
+@import "../../../../styles/utils";
+
 .view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     &__cardPoll {
-        width: 300px;
-        margin-bottom: 15px;
+        width: 280px;
+        margin: 0px 10px 15px 10px;
         &__contentData {
+            min-height: 194px;
             &__navData {
-                div {
+                div:not(#button){
                     margin-bottom: 10px;
+                }
+            }
+        }
+        &__contentButton {
+            @include flex-direction(row);
+            justify-content: space-around;
+            padding: 0px 0px 20px 20px;
+            .fa {
+                font-size: 20px;
+            }
+            &__divButton1 {
+                cursor: pointer;
+            }
+            &__divButton2 {
+                cursor: pointer;
+                i {
+                    display: flex;
+                }
+            }
+            &__divButton3 {
+                cursor: pointer;
+                margin-left: 10px;
+                span {
+                    font-size: 10px;
                 }
             }
         }

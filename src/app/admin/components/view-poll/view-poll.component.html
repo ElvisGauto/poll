@@ -1,8 +1,8 @@
 <div class="view card-body" *ngIf="typePoll$ | async as poll">
-    <div class="view__cardPoll card" *ngFor="let data of poll">
+    <div class="view__cardPoll card" *ngFor="let data of poll; let i = index">
         <div class="view__cardPoll__contentData card-body">
             <nav class="view__cardPoll__contentData__navData" *ngFor="let title of data[0] | keyvalue">
-                <div>
+                <div class="">
                     <b>{{ title.value }}</b>
                 </div>
                 <ul >
@@ -11,6 +11,18 @@
                     </li>
                 </ul>
             </nav>
+        </div>
+        <div class="view__cardPoll__contentButton">
+            <div class="view__cardPoll__contentButton__divButton1" (click)="goToPoll(i)">
+                <i class="fa fa-external-link"></i>
+            </div>
+            <div class="view__cardPoll__contentButton__divButton2" (click)="delete(i, poll)">
+                <i class="fa fa-trash"></i>
+            </div>
+            <div class="view__cardPoll__contentButton__divButton3" (click)="copyPoll(i)">
+                <i class="fa fa-link"></i>
+                <span>(copy link)</span>
+            </div>
         </div>
     </div>
 </div>

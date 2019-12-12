@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { PollService } from 'src/app/shared/services/poll.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'view-poll',
@@ -15,18 +18,20 @@ export class ViewPollComponent implements OnInit {
 
   email: string;
   uid: string;
+  uidModify: string;
+  urlCopied: string;
 
   dataPolls = [];
   titlePoll = [];
 
-  arrPollsOne = [];
-  arrPollsTwo = [];
+  arrNewPoll = [];
 
   arrAll: any = [];
   
   constructor(
     private auth: AuthService,
-    private pollService: PollService
+    private pollService: PollService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -35,17 +40,40 @@ export class ViewPollComponent implements OnInit {
       if(user) {
         this.email = user.email;
         this.uid = user.uid;
+        this.uidModify = this.uid.slice(5, -5);
       }
-      this.typePoll$ = this.pollService.getTypePolls(this.uid);
+      this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
       this.typePoll$.subscribe(x => {
         this.arrAll = x;
       })
-
-      this.typePollByIndex$ = this.pollService.getTypePollsByIndex(this.uid, '2');
-      this.typePollByIndex$.subscribe(x => {
-        console.log(x);
-      })
     })
   }
+  goToPoll(i) {
+    this.router.navigate([`/admin/encuesta/${this.uidModify}/${i}`]);
+  }
 
+  delete(i) {
+    this.pollService.delete(this.uidModify, i);
+  }
+
+  copyPoll(i) {
+    const inputShared = document.createElement('input');
+    let routeUidName = `encuesta/${this.uidModify}/${i}`;
+
+    let url = window.location.href;
+    if(url.includes('pollGloballogic')) {
+      this.urlCopied = url.replace('pollGloballogic', routeUidName);
+    } 
+    inputShared.value = this.urlCopied;     
+
+    document.body.appendChild(inputShared);
+    
+    inputShared.focus();
+    inputShared.select();
+
+    document.execCommand('copy');
+    document.body.removeChild(inputShared);
+    
+    alert('CV link has been copied');
+  }
 }

@@ -5,6 +5,8 @@ import { PollGloballogicComponent } from './core/components/poll-globallogic/pol
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { ListPollsComponent } from './admin/components/list-polls/list-polls.component';
 import { CreatePollComponent } from './admin/components/create-poll/create-poll.component';
+import { DashPollComponent } from './poll/components/dash-poll/dash-poll.component';
+import { AdminDashPollComponent } from './admin/components/admin-dash-poll/admin-dash-poll.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,9 @@ const routes: Routes = [
 
   { path: 'admin/list-polls', component: ListPollsComponent },
   { path: 'admin/create-poll', component: CreatePollComponent },
+  { path: 'admin/encuesta/:uidUser/:idPoll', component: AdminDashPollComponent, canActivate: [AuthGuardService]},
+
+  { path: 'encuesta/:uidUser/:idPoll', component: DashPollComponent, canActivate: [AuthGuardService]},
   
   { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];

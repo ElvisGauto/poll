@@ -14,6 +14,7 @@ export class CreatePollComponent implements OnInit {
   typePoll$;
 
   uid: string;
+  uidModify: string;
   title: string;
   iterador: string;
 
@@ -33,22 +34,21 @@ export class CreatePollComponent implements OnInit {
     this.user$.subscribe(user => {
       if(user) {
         this.uid = user.uid;
+        this.uidModify = this.uid.slice(5, -5);
       }
-      this.typePoll$ = this.pollService.getTypePolls(this.uid);
-      this.typePoll$.subscribe(x => {
-        this.arrComplete = x;
+      this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
+      this.typePoll$.subscribe(data => {
+        if(data.$value !== null) {
+          this.arrComplete = data;
+        }
       })
     })
-    console.log(this.arrNewQuestion);
     this.iterador = this.arrNewQuestion.length;
-    console.log(this.iterador);
   }
 
   moreQuestion() {
     this.iterador = this.iterador + 1;
-    console.log(this.iterador);
     this.arrNewQuestion.push(this.iterador);
-    console.log(this.arrNewQuestion);
   }
 
   add(poll) {
@@ -60,9 +60,7 @@ export class CreatePollComponent implements OnInit {
     delete this.arrTitle[1].titlePoll
     
     this.arrComplete.push(this.arrTitle);
-    console.log(this.arrComplete);
-    // this.arrPoll.push(poll);
-    this.pollService.addPolls(this.uid, this.arrComplete);
+    this.pollService.addPolls(this.uidModify, this.arrComplete);
     
     this.router.navigate(['/pollGloballogic']);
   }

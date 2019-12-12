@@ -1,0 +1,32 @@
+<app-header [flag]="flag"></app-header>
+<div class="poll">
+    <div class="poll__container card">
+        <div class="poll__container__divForm card-body">
+            <form #fPoll="ngForm" class="poll__container__divForm__form" (ngSubmit)="save(fPoll.value, typePoll)">
+                <div class="form-group poll__container__divForm__form__containerDiv">
+                    <div>
+                        <label for="titlePoll"><b>Title:</b></label><br>
+                        <input type="text" ngModel name="title" [(ngModel)]="titlePoll">
+                    </div>
+                    <hr>
+                    <div class="form-group poll__container__divForm__form__containerDiv__radio" *ngFor="let poll of questionPoll | keyvalue; let i = index;">
+                        <div class="form-group">
+                            <label for="poll.key">Pregunta {{ i + 1 }}:</label><br>
+                            <input type="text" ngModel name="poll{{ i + 1 }}" [(ngModel)]="poll.value">
+                        </div>
+                    </div>
+                    <div *ngIf="arrNewQuestion.length > 0">
+                        <div *ngFor="let q of arrNewQuestion| keyvalue">
+                            <label for="">Pregunta {{ q.value }}: </label><br>
+                            <input type="text" ngModel name="poll{{ q.value }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="poll__container__divForm__form__divButton">
+                    <i class="fa fa-plus" (click)="moreQuestion()"></i>
+                    <button class="fa fa-save"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

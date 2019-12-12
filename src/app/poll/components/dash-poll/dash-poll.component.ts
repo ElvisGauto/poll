@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PollService } from 'src/app/shared/services/poll.service';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'dash-poll',
@@ -7,29 +9,53 @@ import { PollService } from 'src/app/shared/services/poll.service';
   styleUrls: ['./dash-poll.component.scss']
 })
 export class DashPollComponent implements OnInit {
-  @Input('typePoll') typePoll;
+  user$;
+  typePollByIndex$;
 
-  email: string;
   dataPoll: any = [];
+  questionPoll: any = [];
+
+  id: { 
+    uidUser: string, 
+    idPoll:string 
+  };
+  
+  uid: string;
+  emailUser: string;
+  uidModify: string;
+  flag: boolean = true;
+
+  titlePoll: string;
 
   constructor(
-    private pollService: PollService
+    private pollService: PollService,
+    private activateRoute: ActivatedRoute,
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
+    this.id = {
+      uidUser: this.activateRoute.snapshot.params.uidUser,
+      idPoll: this.activateRoute.snapshot.params.idPoll
+    }
+    this.user$ = this.auth.user$;
+    this.user$.subscribe(user => {
+      if(user) {
+        this.uid = user.uid;
+        this.emailUser = user.email;
+      }
+      this.typePollByIndex$ = this.pollService.getTypePollsByIndex(this.id.uidUser, this.id.idPoll);
+      this.typePollByIndex$.subscribe(x => {
+        this.titlePoll = x[0].title;
+        this.questionPoll = x[1];
+      })
+    })
   }
 
   save(pollData, dataType) {
-    this.dataPoll.push({
-      email: this.email,
-      poll1: `${dataType.poll1}: ${pollData.poll1}`,
-      poll2: `${dataType.poll2}: ${pollData.poll2}`,
-      poll3: `${dataType.poll3}: ${pollData.poll3}`,
-      poll4: `${dataType.poll4}: ${pollData.poll4}`,
-      poll5: `${dataType.poll5}: ${pollData.poll5}`
-    });
-    // console.log(this.dataPoll);
-    this.pollService.sendPoll(this.dataPoll);
+    this.dataPoll.push(this.emailUser);
+    this.dataPoll.push(pollData);
+    this.pollService.sendPoll(this.id.uidUser, this.id.idPoll, this.dataPoll);
   }
 
 }
