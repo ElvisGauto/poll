@@ -3,7 +3,7 @@
     <div class="poll__container">
         <div class="poll__container__column1 card">
             <div class="poll__container__column1__divForm card-body">
-                <form #fPoll="ngForm" class="poll__container__column1__divForm__form" (ngSubmit)="save(fPoll.value, typePoll)">
+                <form #fPoll="ngForm" class="poll__container__column1__divForm__form" (ngSubmit)="save(fPoll.value)">
                     <div class="form-group poll__container__column1__divForm__form__container__column1Div">
                         <div>
                             <label for="titlePoll"><b>Titulo:</b></label><br>

@@ -1,12 +1,16 @@
 @import "../../../../styles/utils";
+@import "../../../../styles/settings.variables";
 
 .view {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     &__cardPoll {
-        width: 280px;
+        width: 100%;
         margin: 0px 10px 15px 10px;
+        @media (min-width: $breakpoint-tablet) {
+            width: 280px;
+        }
         &__contentData {
             min-height: 194px;
             &__navData {

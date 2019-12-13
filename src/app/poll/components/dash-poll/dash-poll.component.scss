@@ -1,4 +1,5 @@
 @import "../../../../styles/utils";
+@import "../../../../styles/settings.variables";
 
 .poll {
     width: 100%;
@@ -6,7 +7,10 @@
     align-items: center;
     margin-bottom: 40px;
     &__container {
-        width: 500px;
+        width: 95%;
+        @media(min-width: $breakpoint-tablet) {
+            width: 500px;
+        }
         &__divForm {
             &__form {
                 &__containerDiv {
@@ -15,6 +19,9 @@
                             margin: 0 10px;
                         }
                     }
+                }
+                &__divButton {
+                    text-align: center;
                 }
             }
         }

@@ -1,7 +1,18 @@
+@import "../../../../styles/settings.variables";
+
+:host { width: 100%; }
+
 .listPolls {
+    width: 100%;
+    width: 100%;
     &__list {
-        width: 383px;
-        margin-left: 20px;
+        width: 100%;
+        font-size: 12px;
+        @media(min-width: $breakpoint-tablet) {
+            margin-left: 20px;
+            width: 383px;
+            font-size: 15px;
+        }
         &__divContainer {
             display: flex;
             flex-direction: row;

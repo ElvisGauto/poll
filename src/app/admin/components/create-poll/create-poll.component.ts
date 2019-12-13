@@ -17,6 +17,7 @@ export class CreatePollComponent implements OnInit {
   uidModify: string;
   title: string;
   iterador: string;
+  flag: boolean = true;
 
   arrPoll: any = [];
   arrTitle: any = [];

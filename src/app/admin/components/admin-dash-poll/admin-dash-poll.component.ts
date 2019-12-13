@@ -29,6 +29,7 @@ export class AdminDashPollComponent implements OnInit {
   iterator: number;
   position: string;
   uidModify: string;
+  flag: boolean = true;
 
   constructor(
     private auth: AuthService,

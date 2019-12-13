@@ -1,17 +1,31 @@
 @import "../../../../styles/utils";
+@import "../../../../styles/settings.variables";
 
 .poll {
     width: 100%;
     @include flex-direction(column);
     align-items: center;
-    justify-content: center;
     margin-bottom: 40px;
+    @media(min-width: $breakpoint-tablet) {
+        align-items: center;
+        justify-content: center;
+    }
     &__container {
-        @include flex-direction(row);
+        width: 95%;
+        @include flex-direction(column);
+        align-self: center;
+        margin-bottom: 10px;
+        @media(min-width: $breakpoint-tablet) {
+            @include flex-direction(row);
+        }
         &__column1 {
-            width: 490px;
+            width: 100%;
             min-height: 282px;
-            margin: 0 10px 10px 0;
+            margin: 0px 0px 10px 0px;
+            @media(min-width: $breakpoint-tablet) {
+                width: 490px;
+                margin: 0 10px 10px 0;
+            }
             &__divForm {
                 &__form {
                     &__divButton {
@@ -33,8 +47,11 @@
             }
         }
         &__statistics {
-            width: 400px;
-            height: 282px;
+            width: 100%;
+            min-height: 282px;
+            @media(min-width: $breakpoint-tablet) {
+                width: 400px;
+            }
         }
     }
     &__listPoll {
