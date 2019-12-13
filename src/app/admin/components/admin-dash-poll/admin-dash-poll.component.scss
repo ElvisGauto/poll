@@ -4,25 +4,41 @@
     width: 100%;
     @include flex-direction(column);
     align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
     &__container {
-        width: 500px;
-        margin-bottom: 40px;
-        &__divForm {
-            &__form {
-                &__divButton {
-                    .fa-plus {
-                        font-size: 25px;
-                        margin-right: 10px;
+        @include flex-direction(row);
+        &__column1 {
+            width: 490px;
+            min-height: 282px;
+            margin: 0 10px 10px 0;
+            &__divForm {
+                &__form {
+                    &__divButton {
+                        .fa-plus {
+                            font-size: 25px;
+                            margin-right: 10px;
+                        }
+                        button {
+                            font-size: 25px;
+                            padding: 0;
+                            border: none;
+                            background-color: #fff;
+                        }
                     }
-                    button {
-                        font-size: 25px;
-                        padding: 0;
-                        border: none;
-                        background-color: #fff;
+                    &__divButton {
+                        margin-top: 55px;
                     }
                 }
             }
         }
+        &__statistics {
+            width: 400px;
+            height: 282px;
+        }
+    }
+    &__listPoll {
+        width: 95.6%;
     }
 }
 

@@ -13,6 +13,8 @@ export class DashPollComponent implements OnInit {
   typePollByIndex$;
 
   dataPoll: any = [];
+  allData: any = [];
+  arrData: any = [];
   questionPoll: any = [];
 
   id: { 
@@ -48,14 +50,24 @@ export class DashPollComponent implements OnInit {
       this.typePollByIndex$.subscribe(x => {
         this.titlePoll = x[0].title;
         this.questionPoll = x[1];
+        this.allData = x[2];
       })
     })
   }
 
-  save(pollData, dataType) {
-    this.dataPoll.push(this.emailUser);
-    this.dataPoll.push(pollData);
-    this.pollService.sendPoll(this.id.uidUser, this.id.idPoll, this.dataPoll);
+  save(pollData) {
+    this.arrData.push({
+     email: this.emailUser
+    });
+
+    this.arrData.push(pollData);
+    if(this.allData === undefined) {
+      this.allData = [];
+      this.allData.push(this.arrData);
+    } else {
+      this.allData.push(this.arrData);
+    }
+    this.pollService.sendPoll(this.id.uidUser, this.id.idPoll, this.allData);
   }
 
 }

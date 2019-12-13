@@ -27,6 +27,8 @@ export class AdminDashPollComponent implements OnInit {
   uid: string;
   titlePoll: string;
   iterator: number;
+  position: string;
+  uidModify: string;
 
   constructor(
     private auth: AuthService,
@@ -40,12 +42,16 @@ export class AdminDashPollComponent implements OnInit {
       uidUser: this.activateRoute.snapshot.params.uidUser,
       idPoll: this.activateRoute.snapshot.params.idPoll
     }
+
+    this.position = this.id.idPoll;
+    this.uidModify = this.id.uidUser;
+
     this.user$ = this.auth.user$;
     this.user$.subscribe(user => {
       if(user) {
         this.uid = user.uid;
       }
-      this.typePollByIndex$ = this.pollService.getTypePollsByIndex(this.id.uidUser, this.id.idPoll);
+      this.typePollByIndex$ = this.pollService.getTypePollsByIndex(this.uidModify, this.position);
       this.typePollByIndex$.subscribe(x => {
         this.titlePoll = x[0].title;
         this.questionPoll = x[1];
@@ -65,8 +71,8 @@ export class AdminDashPollComponent implements OnInit {
     });
     this.arrPolls.push(poll);
     delete this.arrPolls[0].title
-    this.pollService.addByPolls(this.id.uidUser, this.id.idPoll, '0', this.arrTitle[0]);
-    this.pollService.addByPolls(this.id.uidUser, this.id.idPoll, '1', this.arrPolls[0]);
+    this.pollService.addByPolls(this.uidModify, this.position, '0', this.arrTitle[0]);
+    this.pollService.addByPolls(this.uidModify, this.position, '1', this.arrPolls[0]);
     
     this.router.navigate(['/pollGloballogic']);
   }

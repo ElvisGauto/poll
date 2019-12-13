@@ -1,5 +1,11 @@
 .listPolls {
     &__list {
+        width: 213px;
         margin-left: 20px;
+        &__divContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
 }

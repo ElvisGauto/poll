@@ -2,7 +2,7 @@
 <div class="poll">
     <div class="poll__container card">
         <div class="poll__container__divForm card-body">
-            <form #fPoll="ngForm" class="poll__container__divForm__form" (ngSubmit)="save(fPoll.value, typePoll)">
+            <form #fPoll="ngForm" class="poll__container__divForm__form" (ngSubmit)="save(fPoll.value)">
                 <div class="form-group poll__container__divForm__form__containerDiv">
                     <h4>{{ titlePoll }}</h4>
                     <div class="form-group poll__container__divForm__form__containerDiv__radio" *ngFor="let poll of questionPoll | keyvalue">

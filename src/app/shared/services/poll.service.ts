@@ -9,7 +9,7 @@ export class PollService {
   constructor(private db: AngularFireDatabase) { }
 
   sendPoll(uid:string, position: string, pollData: string) {
-    this.db.object(`/typePolls/${uid}/${position}`).update(pollData);
+    this.db.object(`/typePolls/${uid}/${position}/2/`).update(pollData);
   }
 
   addPolls(uid: string, poll: string) {
@@ -24,8 +24,8 @@ export class PollService {
     this.db.object(`/typePolls/${uid}/${position1}`).remove();
   }
 
-  getPolls() {
-    return this.db.list('/poll/');
+  getPolls(uid: string, position: string) {
+    return this.db.list(`/typePolls/${uid}/${position}/`);
   }
 
   getTypePolls(uid: string) {

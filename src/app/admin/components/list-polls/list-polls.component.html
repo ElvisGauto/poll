@@ -1,15 +1,19 @@
-<app-header [flag]="flag"></app-header>
 <div class="listPolls">
     <div class="listPolls__list" *ngFor="let data of listPolls">
-        <div>
-            {{ data.email }}
+        <div *ngFor="let email of data[0] | keyvalue">
+            <b>{{ email.value }}</b>
         </div>
-        <ul>
-            <li>{{ data.poll1 }}</li>
-            <li>{{ data.poll2 }}</li>
-            <li>{{ data.poll3 }}</li>
-            <li>{{ data.poll4 }}</li>
-            <li>{{ data.poll5 }}</li>
-        </ul>
+        <div class="listPolls__list__divContainer">
+            <div >
+                <div *ngFor="let question of dataQuestion | keyvalue">
+                    {{ question.value }}:
+                </div>
+             </div>
+            <div>
+                <div *ngFor="let poll of data[1] | keyvalue">
+                    {{ poll.value }}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
