@@ -7,11 +7,11 @@
                     <h4>{{ titlePoll }}</h4>
                     <div class="form-group poll__container__divForm__form__containerDiv__radio" *ngFor="let poll of questionPoll | keyvalue">
                         <label> {{ poll.value }} </label><br>
-                        <input type="radio" ngModel name="{{ poll.key }}" id="radio1" value="1">1
+                        <input type="radio" ngModel name="{{ poll.key }}" id="radio1" value="En desacuerdo">1
                         <input type="radio" ngModel name="{{ poll.key }}" id="" value="2">2
-                        <input type="radio" ngModel name="{{ poll.key }}" id="" value="3">3
+                        <input type="radio" ngModel name="{{ poll.key }}" id="" value="De acuerdo">3
                         <input type="radio" ngModel name="{{ poll.key }}" id="" value="4">4
-                        <input type="radio" ngModel name="{{ poll.key }}" id="" value="5">5
+                        <input type="radio" ngModel name="{{ poll.key }}" id="" value="Totalmente de Acuerdo">5
                     </div>
                 </div>
                 <button class="btn btn-primary">Enviar</button>

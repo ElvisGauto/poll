@@ -1,10 +1,17 @@
 <app-header [flag]="flag"></app-header>
-<div class="poll" *ngIf="typePoll$ | async as typePoll">
-    <div class="poll__divBtn">
-        <button class="btn btn-primary" (click)="createPoll()">Crear Encuesta</button>
+<div class="poll" *ngIf="getUser$ | async as user">
+    <div *ngIf="user.admin !== undefined; else notPoll">
+        <div class="poll__divBtn">
+            <button class="btn btn-primary" (click)="createPoll()">Crear Encuesta</button>
+        </div>
+        <div class="poll__divPoll">
+            <view-poll></view-poll>
+        </div>
     </div>
-    <div class="poll__divPoll">
-        <view-poll></view-poll>
-    </div>
+    <ng-template #notPoll>
+        <div class="poll__notAdmin">
+            <h4>Usted no tiene encuestas por hacer</h4>
+        </div>
+    </ng-template>
 </div>
     

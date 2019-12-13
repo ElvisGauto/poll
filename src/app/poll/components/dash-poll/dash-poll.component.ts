@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PollService } from 'src/app/shared/services/poll.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -32,7 +32,8 @@ export class DashPollComponent implements OnInit {
   constructor(
     private pollService: PollService,
     private activateRoute: ActivatedRoute,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -68,6 +69,10 @@ export class DashPollComponent implements OnInit {
       this.allData.push(this.arrData);
     }
     this.pollService.sendPoll(this.id.uidUser, this.id.idPoll, this.allData);
+
+    if (!confirm('Gracias por completar la encuesta. Saludos!')) return;
+
+    this.router.navigate(['/login']);
   }
 
 }

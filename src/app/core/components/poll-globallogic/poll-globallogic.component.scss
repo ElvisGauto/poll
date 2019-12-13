@@ -11,4 +11,9 @@
     &__divBtn {
         text-align: center;
     }
+    &__notAdmin {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 }
