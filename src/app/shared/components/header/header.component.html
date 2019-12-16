@@ -9,9 +9,6 @@
             </div>
             <div class="header__divValues__navbar__items" *ngIf="user$ | async as user">
                 <ul class="header__divValues__navbar__items__ul">
-                    <li *ngIf="user.admin" (click)="redirectList()">
-                        <u>Lista de Encuestas</u> 
-                    </li>
                     <li (click)="singOut()">
                         <u>Salir</u> 
                     </li>
