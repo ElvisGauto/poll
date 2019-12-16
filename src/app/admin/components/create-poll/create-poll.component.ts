@@ -15,9 +15,11 @@ export class CreatePollComponent implements OnInit {
 
   uid: string;
   uidModify: string;
+  uidName: string;
   title: string;
   iterador: string;
   flag: boolean = true;
+  iterator: number;
 
   arrPoll: any = [];
   arrTitle: any = [];
@@ -36,15 +38,16 @@ export class CreatePollComponent implements OnInit {
       if(user) {
         this.uid = user.uid;
         this.uidModify = this.uid.slice(5, -5);
+        this.uidName = user.displayName + this.uidModify;
       }
       this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
       this.typePoll$.subscribe(data => {
+        this.iterator = data.length;
         if(data.$value !== null) {
           this.arrComplete = data;
         }
       })
     })
-    this.iterador = this.arrNewQuestion.length;
   }
 
   moreQuestion() {
@@ -53,15 +56,14 @@ export class CreatePollComponent implements OnInit {
   }
 
   add(poll) {
+    this.iterator = this.iterator * 284;
     this.arrTitle.push({
       title: poll.titlePoll
     });
 
     this.arrTitle.push(poll);
     delete this.arrTitle[1].titlePoll
-    
-    this.arrComplete.push(this.arrTitle);
-    this.pollService.addPolls(this.uidModify, this.arrComplete);
+    this.pollService.addPolls(this.uidModify,`poll${this.iterator}` , this.arrTitle);
     
     this.router.navigate(['/pollGloballogic']);
   }

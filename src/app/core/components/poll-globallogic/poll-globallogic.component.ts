@@ -45,9 +45,6 @@ export class PollGloballogicComponent implements OnInit {
       this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
 
       this.getUser$ = this.userService.getUser(this.uid);
-      this.getUser$.subscribe(x => {
-        console.log(x.admin);
-      })
     })
   }
 

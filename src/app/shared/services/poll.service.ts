@@ -12,16 +12,16 @@ export class PollService {
     this.db.object(`/typePolls/${uid}/${position}/2/`).update(pollData);
   }
 
-  addPolls(uid: string, poll: string) {
-    this.db.object(`/typePolls/${uid}/`).update(poll);
+  addPolls(uid: string, uidName: string,poll: string) {
+    this.db.object(`/typePolls/${uid}/${uidName}/`).update(poll);
   }
 
   addByPolls(uid: string, position1: string, position2: string, poll: string) {
     this.db.object(`/typePolls/${uid}/${position1}/${position2}`).update(poll);
   }
 
-  delete(uid: string, position1: string) {
-    this.db.object(`/typePolls/${uid}/${position1}`).remove();
+  delete(uid: string, position: string) {
+    this.db.list(`/typePolls/${uid}/${position}`).remove();
   }
 
   getPolls(uid: string, position: string) {
@@ -29,10 +29,10 @@ export class PollService {
   }
 
   getTypePolls(uid: string) {
-    return this.db.object(`/typePolls/${uid}/`);
+    return this.db.list(`/typePolls/${uid}/`);
   }
 
   getTypePollsByIndex(uid: string, index: string) {
-    return this.db.object(`/typePolls/${uid}/${index}`);
+    return this.db.list(`/typePolls/${uid}/${index}/`);
   }
 }

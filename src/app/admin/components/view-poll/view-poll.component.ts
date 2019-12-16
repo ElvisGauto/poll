@@ -49,16 +49,16 @@ export class ViewPollComponent implements OnInit {
     })
   }
   goToPoll(i) {
-    this.router.navigate([`/admin/encuesta/${this.uidModify}/${i}`]);
+    this.router.navigate([`/admin/encuesta/${this.uidModify}/${this.arrAll[i].$key}`]);
   }
 
   delete(i) {
-    this.pollService.delete(this.uidModify, i);
+    this.pollService.delete(this.uidModify, this.arrAll[i].$key);
   }
 
   copyPoll(i) {
     const inputShared = document.createElement('input');
-    let routeUidName = `encuesta/${this.uidModify}/${i}`;
+    let routeUidName = `encuesta/${this.uidModify}/${this.arrAll[i].$key}`;
 
     let url = window.location.href;
     if(url.includes('pollGloballogic')) {
