@@ -55,6 +55,10 @@ export class CreatePollComponent implements OnInit {
     this.arrNewQuestion.push(this.iterador);
   }
 
+  removeQuestion(i) {
+    this.arrNewQuestion.splice( this.arrNewQuestion.indexOf(i), 1 );
+  }
+
   add(poll) {
     this.iterator = this.iterator * 284;
     this.arrTitle.push({

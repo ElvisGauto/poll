@@ -12,10 +12,36 @@
             width: 500px;
             height: auto;
         }
+        &__bodyPoll {
+            &__divForm {
+                &__form {
+                    &__container {
+                        div {
+                            margin-bottom: 10px;
+                            input {
+                                width: 92%;
+                            }
+                        }
+                        &__containerInput {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 .fa {
     font-size: 28px;
     margin-right: 10px;
+    background-color: #fff;
+    border: none;
+}
+
+.fa-trash {
+    font-size: 25px;
+    margin-left: 10px;
 }
