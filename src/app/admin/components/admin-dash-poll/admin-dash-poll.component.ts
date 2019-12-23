@@ -67,14 +67,14 @@ export class AdminDashPollComponent implements OnInit {
     this.arrNewQuestion.push(this.iterator);
   }
 
-  removeQuestion(i) {
-    console.log(i);
+  // removeQuestion(i) {
+  //   console.log(i);
     // this.arrDeletePoll.push(data);
     // console.log(this.arrDeletePoll);
     // this.arrDeletePoll.splice( this.arrDeletePoll.indexOf(1), 1 );
     // console.log(this.arrDeletePoll);
     // this.pollService.removePolls(this.uid, this.position, key);
-  }
+  // }
 
   save(poll) {
     this.arrTitle.push({
