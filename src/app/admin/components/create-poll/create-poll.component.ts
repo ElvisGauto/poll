@@ -61,9 +61,7 @@ export class CreatePollComponent implements OnInit {
 
   add(poll) {
     // this.iterator = this.iterator * 284;
-    // console.log(this.iterator);
     // let pancho = this.iterator.concat(String(2*876));
-    // console.log(pancho);
     this.arrTitle.push({
       title: poll.titlePoll
     });

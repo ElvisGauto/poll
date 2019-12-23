@@ -16,7 +16,6 @@ export class AuthService {
     private route: ActivatedRoute
   ) { 
     this.user$ = afAuth.authState;
-    // console.log(this.user$);
   }
 
   login(pancho) {
