@@ -4,22 +4,28 @@
         <div class="poll__container__column1 card">
             <div class="poll__container__column1__divForm card-body">
                 <form #fPoll="ngForm" class="poll__container__column1__divForm__form" (ngSubmit)="save(fPoll.value)">
-                    <div class="form-group poll__container__column1__divForm__form__container__column1Div">
+                    <div class="form-group poll__container__column1__divForm__form__columnDiv">
                         <div>
                             <label for="titlePoll"><b>Titulo:</b></label><br>
                             <input type="text" ngModel name="title" [(ngModel)]="titlePoll">
                         </div>
                         <hr>
-                        <div class="form-group poll__container__column1__divForm__form__container__column1Div__radio" *ngFor="let poll of questionPoll | keyvalue; let i = index;">
+                        <div class="form-group poll__container__column1__divForm__form__columnDiv__radio" *ngFor="let poll of questionPoll | keyvalue; let i = index;">
                             <div class="form-group">
                                 <label for="poll.key">Pregunta {{ i + 1 }}:</label><br>
-                                <input type="text" ngModel name="poll{{ i + 1 }}" [(ngModel)]="poll.value">
+                                <div class="poll__container__column1__divForm__form__columnDiv__radio__divButtons">
+                                    <input type="text" ngModel name="poll{{ i + 1 }}" [(ngModel)]="poll.value">
+                                    <i class="fa fa-trash" (click)="removeQuestion(poll.key)"></i>
+                                </div>
                             </div>
                         </div>
                         <div *ngIf="arrNewQuestion.length > 0">
                             <div *ngFor="let q of arrNewQuestion| keyvalue">
                                 <label for="">Pregunta {{ q.value }}: </label><br>
-                                <input type="text" ngModel name="poll{{ q.value }}">
+                                <div class="poll__container__column1__divForm__form__columnDiv__divBtnRemove">
+                                    <input type="text" ngModel name="poll{{ q.value }}">
+                                    <i class="fa fa-trash" (click)="removeQuestion(i)"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,7 +39,7 @@
         <div class="poll__container__statistics card">
             <div class="card-body">
                 <h4>Estadisticas</h4>
-    
+                
             </div>
         </div>
     </div>

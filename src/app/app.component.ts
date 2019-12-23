@@ -9,6 +9,8 @@ import { UserService } from './shared/services/user.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  user$;
   
   constructor(
     private auth: AuthService, 

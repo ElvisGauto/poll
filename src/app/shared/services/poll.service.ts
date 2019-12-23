@@ -24,6 +24,10 @@ export class PollService {
     this.db.list(`/typePolls/${uid}/${position}`).remove();
   }
 
+  removePolls(uid: string, position: string, key: string) {
+    this.db.list(`/typePolls/${uid}/${position}/${key}`).remove();
+  }
+
   getPolls(uid: string, position: string) {
     return this.db.list(`/typePolls/${uid}/${position}/`);
   }
@@ -35,4 +39,9 @@ export class PollService {
   getTypePollsByIndex(uid: string, index: string) {
     return this.db.list(`/typePolls/${uid}/${index}/`);
   }
+
+  chargeDisplay(uid: string, poll: string, position: string, display: boolean) {
+    return this.db.object(`/typePolls/${uid}/${poll}/2/${position}`).update(display);
+  }
+
 }

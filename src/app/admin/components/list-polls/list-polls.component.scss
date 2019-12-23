@@ -1,3 +1,4 @@
+@import "../../../../styles/utils";
 @import "../../../../styles/settings.variables";
 
 :host { width: 100%; }
@@ -7,16 +8,34 @@
     width: 100%;
     &__list {
         width: 100%;
-        font-size: 12px;
+        font-size: 10px;
+        margin-bottom: 10px;
         @media(min-width: $breakpoint-tablet) {
             margin-left: 20px;
-            width: 70%;
+            width: 90%;
             font-size: 15px;
+        }
+        &__divHead {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            height: 35px;
+            border: 1px solid;
+            align-items: center;
+            padding: 0 10px;
         }
         &__divContainer {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            padding: 0 10px;
         }
     }
+}
+
+.fa {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    @include flex-col-cen-cen;
 }

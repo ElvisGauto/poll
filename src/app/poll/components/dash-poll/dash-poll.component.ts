@@ -57,8 +57,12 @@ export class DashPollComponent implements OnInit {
   }
 
   save(pollData) {
+    let dataObj = new Date().toISOString().replace('T', ' ').slice(0, -5);
+    let date = dataObj;
+    
     this.arrData.push({
-     email: this.emailUser
+      email: this.emailUser,
+      date: date
     });
 
     this.arrData.push(pollData);
@@ -68,6 +72,10 @@ export class DashPollComponent implements OnInit {
     } else {
       this.allData.push(this.arrData);
     }
+
+    this.arrData.push({
+      display: false
+    });
     this.pollService.sendPoll(this.id.uidUser, this.id.idPoll, this.allData);
 
     if (!confirm('Gracias por completar la encuesta. Saludos!')) return;

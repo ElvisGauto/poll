@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class LoginComponent {
 
+  pancho: boolean = false;
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -17,6 +19,7 @@ export class LoginComponent {
   }
 
   start() {
-    this.authService.login();
+    this.authService.login('se logeo');
+    // this.pancho = true;
   }
 }

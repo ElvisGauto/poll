@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PollService } from 'src/app/shared/services/poll.service';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'list-polls',
@@ -11,14 +12,18 @@ export class ListPollsComponent implements OnInit {
   @Input('position') position;
   @Input('uidModify') uidModify;
 
-
+  flagShowData: boolean = false;
   flag: boolean = false;
+
+  display: boolean;
 
   listPolls = [];
   dataQuestion = [];
+  arrDisplay = [];
 
   constructor(
-    private pollService: PollService
+    private pollService: PollService,
+    private adminService: AdminService
     ) { }
 
   ngOnInit() {
@@ -27,5 +32,23 @@ export class ListPollsComponent implements OnInit {
       this.dataQuestion = data[1];
     })
   }
+
+  displayData(i) {
+    this.display = true;
+    this.arrDisplay.push({
+      display: this.display
+    });
+    this.adminService.displayData(this.uidModify, this.position, i, this.arrDisplay[0]);
+    this.arrDisplay = [];
+  }  
+  
+  hideData(i) {
+    this.display = false;
+    this.arrDisplay.push({
+      display: this.display
+    });
+    this.adminService.displayData(this.uidModify, this.position, i, this.arrDisplay[0]);
+    this.arrDisplay = [];
+  }  
 
 }

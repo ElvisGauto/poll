@@ -1,10 +1,16 @@
 <div class="listPolls">
-    <div class="listPolls__list" *ngFor="let data of listPolls">
-        <div *ngFor="let email of data[0] | keyvalue">
-            <b>{{ email.value }}</b>
+    <div class="listPolls__list" *ngFor="let data of listPolls; let i = index">
+        <div class="listPolls__list__divHead">
+            <div>
+                <i *ngIf="data[2].display" class="fa fa-arrow-right" (click)="hideData(i)"></i>
+                <i *ngIf="!data[2].display" class="fa fa-arrow-down" (click)="displayData(i)"></i>
+            </div>
+            <div *ngFor="let email of data[0] | keyvalue">
+                <b>{{ email.value }}</b>
+            </div>
         </div>
-        <div class="listPolls__list__divContainer">
-            <div >
+        <div class="listPolls__list__divContainer" *ngIf="data[2].display">
+            <div>
                 <div *ngFor="let question of dataQuestion | keyvalue">
                     {{ question.value }}:
                 </div>

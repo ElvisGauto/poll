@@ -1,6 +1,6 @@
 <div class="login">
     <img class="login__img" src="../../../../assets/images/globallogic-background.jpg" alt="">
-    <div class="login__container">
+    <div class="login__container" *ngIf="!pancho">
         <h4>Bienvenido</h4>
         <div class="login__container__paragraph">
             <p>El proposito de esta encuesta es que puedas brindarnos 
@@ -8,5 +8,8 @@
             con el trabajo que brindamos. </p>
         </div>
         <button class="btn btn-primary" (click)="start()">Comenzar</button>
+    </div>
+    <div class="login__container" *ngIf="pancho">
+        CARGANDO...
     </div>
 </div>

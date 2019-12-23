@@ -28,7 +28,21 @@
             }
             &__divForm {
                 &__form {
+                    &__columnDiv {
+                        &__radio {
+                            &__divButtons {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                            }
+                        }
+                        &__divBtnRemove {
+                            display: flex;
+                        }
+                
+                    }
                     &__divButton {
+                        margin-top: 55px;
                         .fa-plus {
                             font-size: 25px;
                             margin-right: 10px;
@@ -39,9 +53,6 @@
                             border: none;
                             background-color: #fff;
                         }
-                    }
-                    &__divButton {
-                        margin-top: 55px;
                     }
                 }
             }
@@ -59,6 +70,13 @@
     }
 }
 
+.fa-trash {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
 input {
     width: 100%;
 }
+
+// poll__container__column1__divForm__form__columnDiv

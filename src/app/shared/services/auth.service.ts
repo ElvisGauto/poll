@@ -16,9 +16,10 @@ export class AuthService {
     private route: ActivatedRoute
   ) { 
     this.user$ = afAuth.authState;
+    // console.log(this.user$);
   }
 
-  login() {
+  login(pancho) {
     let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/pollGloballogic';
     localStorage.setItem('returnUrl', returnUrl);
 

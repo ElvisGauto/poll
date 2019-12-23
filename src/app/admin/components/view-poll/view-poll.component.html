@@ -1,5 +1,8 @@
 <div class="view card-body" *ngIf="typePoll$ | async as poll">
     <div class="view__cardPoll card" *ngFor="let data of poll; let i = index">
+        <div class="view__cardPoll__divResponses" *ngIf="data[2]">
+            <span class="badge badge-warning badge-pill view__cardPoll__divResponses__response">{{ data[2].length }}</span>
+        </div>
         <div class="view__cardPoll__contentData card-body">
             <nav class="view__cardPoll__contentData__navData" *ngFor="let title of data[0] | keyvalue">
                 <div class="">

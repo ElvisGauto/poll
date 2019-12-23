@@ -11,6 +11,17 @@
         @media (min-width: $breakpoint-tablet) {
             width: 280px;
         }
+        &__divResponses {
+            text-align: center;
+            &__response {
+                position: absolute;
+                margin-left: 263px;
+                margin-top: -9px;
+                width: 31px;
+                height: 31px;
+                @include flex-col-cen-cen;
+            }
+        }
         &__contentData {
             min-height: 194px;
             &__navData {
