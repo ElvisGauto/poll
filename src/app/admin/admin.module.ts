@@ -6,6 +6,7 @@ import { CreatePollComponent } from './components/create-poll/create-poll.compon
 import { FormsModule } from '@angular/forms';
 import { ViewPollComponent } from './components/view-poll/view-poll.component';
 import { AdminDashPollComponent } from './components/admin-dash-poll/admin-dash-poll.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AdminDashPollComponent } from './components/admin-dash-poll/admin-dash-
     ListPollsComponent,
     CreatePollComponent,
     ViewPollComponent,
-    AdminDashPollComponent
+    AdminDashPollComponent,
+    StatisticsComponent
   ],
   imports: [
     CommonModule,

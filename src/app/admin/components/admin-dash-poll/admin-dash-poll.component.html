@@ -51,17 +51,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="poll__container__column1__divForm__form__divButton">
+                    <!-- <div class="poll__container__column1__divForm__form__divButton"> -->
                         <!-- <i class="fa fa-plus" (click)="moreQuestion()"></i> -->
-                        <button class="fa fa-save"></button>
-                    </div>
+                        <!-- <button class="fa fa-save"></button>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div class="poll__container__statistics card">
             <div class="card-body">
-                <h4>Estadisticas</h4>
-                
+                <statistics
+                [position]="position"
+                [uidModify]="uidModify"
+                ></statistics>
             </div>
         </div>
     </div>

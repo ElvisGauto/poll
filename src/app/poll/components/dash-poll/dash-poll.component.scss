@@ -15,6 +15,9 @@
             &__form {
                 &__containerDiv {
                     &__radio {
+                        #radio1 {
+                            margin-right: 10px;
+                        }
                         input:not(#radio1) {
                             margin: 0 10px;
                         }
