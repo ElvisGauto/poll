@@ -3,7 +3,7 @@
     <div class="poll__container">
         <div class="poll__container__column1 card">
             <div class="poll__container__column1__divForm card-body">
-                <form #fPoll="ngForm" class="poll__container__column1__divForm__form" (ngSubmit)="save(fPoll.value)">
+                <!-- <form #fPoll="ngForm" class="poll__container__column1__divForm__form" (ngSubmit)="save(fPoll.value)">
                     <div class="form-group poll__container__column1__divForm__form__columnDiv">
                         <div>
                             <label for="titlePoll"><b>Titulo:</b></label><br>
@@ -33,7 +33,29 @@
                         <i class="fa fa-plus" (click)="moreQuestion()"></i>
                         <button class="fa fa-save"></button>
                     </div>
-                </form>
+                </form> -->
+                <div class="poll__container__column1__divForm__form">
+                    <div class="form-group poll__container__column1__divForm__form__columnDiv">
+                        <div>
+                            <label for="titlePoll"><b>TITULO:</b></label><br>
+                            <div>{{ titlePoll }}</div>
+                        </div>
+                        <hr>
+                        <div class="form-group poll__container__column1__divForm__form__columnDiv__radio" 
+                        *ngFor="let poll of questionPoll | keyvalue; let i = index;">
+                            <div class="form-group">
+                                <label for="poll.key"><b>Pregunta {{ i + 1 }}:</b></label><br>
+                                <div class="poll__container__column1__divForm__form__columnDiv__radio__divButtons">
+                                    <div>{{ poll.value }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="poll__container__column1__divForm__form__divButton">
+                        <!-- <i class="fa fa-plus" (click)="moreQuestion()"></i> -->
+                        <button class="fa fa-save"></button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="poll__container__statistics card">

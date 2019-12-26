@@ -10,13 +10,17 @@
             </div>
         </div>
         <div class="listPolls__list__divContainer" *ngIf="data[2].display">
-            <div>
-                <div *ngFor="let question of dataQuestion | keyvalue">
+            <div class="listPolls__list__divContainer__divQuestion">
+                <div 
+                class="listPolls__list__divContainer__divQuestion__question"
+                *ngFor="let question of dataQuestion | keyvalue">
                     {{ question.value }}:
                 </div>
              </div>
-            <div>
-                <div *ngFor="let poll of data[1] | keyvalue">
+            <div class="listPolls__list__divContainer__divValue">
+                <div 
+                class="listPolls__list__divContainer__divValue__value"
+                *ngFor="let poll of data[1] | keyvalue">
                     {{ poll.value }}
                 </div>
             </div>

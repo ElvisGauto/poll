@@ -23,8 +23,7 @@
             min-height: 282px;
             margin: 0px 0px 10px 0px;
             @media(min-width: $breakpoint-tablet) {
-                width: 490px;
-                margin: 0 10px 10px 0;
+                margin: 0 10px 0 0;
             }
             &__divForm {
                 &__form {
@@ -60,9 +59,6 @@
         &__statistics {
             width: 100%;
             min-height: 282px;
-            @media(min-width: $breakpoint-tablet) {
-                width: 400px;
-            }
         }
     }
     &__listPoll {

@@ -23,12 +23,23 @@
             border: 1px solid;
             align-items: center;
             padding: 0 10px;
+            margin-bottom: 10px;
         }
         &__divContainer {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             padding: 0 10px;
+            &__divQuestion {
+                &__question {
+                    margin-bottom: 10px;
+                }
+            }
+            &__divValue {
+                &__value {
+                    margin-bottom: 10px;
+                }
+            }
         }
     }
 }
