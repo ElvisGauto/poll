@@ -20,7 +20,8 @@ export class StatisticsComponent implements OnInit {
   ngOnInit() {
     this.statisticsService.displayData(this.uidModify, this.position)
     .subscribe(x => {
-      this.valuePolls = x[2];
+      this.valuePolls = x;
+      console.log(this.valuePolls);
     })
   }
 
