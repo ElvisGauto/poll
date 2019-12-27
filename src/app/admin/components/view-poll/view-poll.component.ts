@@ -74,6 +74,6 @@ export class ViewPollComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(inputShared);
     
-    alert('CV link has been copied');
+    alert('¡El link de la encuesta ha sido copiado!');
   }
 }

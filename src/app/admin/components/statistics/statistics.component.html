@@ -1,10 +1,16 @@
 <h4>Estadisticas</h4>
-<div class="valuePolls" *ngFor="let data of valuePolls; let i = index">
+<div class="valuePolls" *ngIf="valuePolls$ | async as valuePolls">
+    <div>
+        <button (click)="getStatistics(valuePolls[2].poll1)">Pregunta: 1</button><br>
+        <!-- <span (click)="getStatistics()">Pregunta: 2</span><br>
+        <span (click)="getStatistics()">Pregunta: 3</span><br>
+        <span (click)="getStatistics()">Pregunta: 4</span><br> -->
+    </div>
     <div class="valuePolls__list">
         <div 
         class="valuePolls__list__divContainer"
-        *ngFor="let poll of data[1] | keyvalue">
-            
+        *ngFor="let poll of valuePolls | keyvalue; let i = index">
+          
         </div>
     </div>
 </div>

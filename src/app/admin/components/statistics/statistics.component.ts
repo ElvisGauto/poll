@@ -11,18 +11,41 @@ export class StatisticsComponent implements OnInit {
   @Input('position') position;
   @Input('uidModify') uidModify;
 
-  valuePolls: any = [];
+  totalmenteDeAcuerdo: number = 1;
+
+  valuePolls$;
+  valuePollsWachin: any = [];
+  i: number = 0;
+  
 
   constructor(
     private statisticsService: StatisticsService
   ) { }
 
   ngOnInit() {
-    this.statisticsService.displayData(this.uidModify, this.position)
-    .subscribe(x => {
-      this.valuePolls = x;
-      console.log(this.valuePolls);
+    this.valuePolls$ = this.statisticsService.displayData(this.uidModify, this.position);
+    this.valuePolls$.subscribe(x => {
+      this.valuePollsWachin = x[2];
+      let pancho = this.valuePollsWachin.map(function(x) {
+        return x[1]
+      })
+      // console.log(pancho);
     })
+  }
+
+  getStatistics(poll, data) {
+    for(let i = 1; i <= this.valuePollsWachin.length; i++) {
+      if(poll === 'De acuerdo') {
+        this.i = this.i + 1;
+        return this.i
+      }
+    }
+    // if(poll === 'De acuerdo') {
+    //   this.i = this.i + 1;
+    //   return this.i
+    // }
+    // console.log(poll.pop());
+    // console.log(poll);
   }
 
 }
