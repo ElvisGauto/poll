@@ -6,19 +6,22 @@ import { HeaderComponent } from './components/header/header.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
     MaterialModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent
   ],
   providers: [
     AuthService,
