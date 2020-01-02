@@ -33,19 +33,19 @@ export class StatisticsComponent implements OnInit {
     })
   }
 
-  getStatistics(poll, data) {
-    for(let i = 1; i <= this.valuePollsWachin.length; i++) {
-      if(poll === 'De acuerdo') {
-        this.i = this.i + 1;
-        return this.i
-      }
-    }
+  // getStatistics(poll) {
+    // for(let i = 1; i <= this.valuePollsWachin.length; i++) {
+    //   if(poll === 'De acuerdo') {
+    //     this.i = this.i + 1;
+    //     return this.i
+    //   }
+    // }
     // if(poll === 'De acuerdo') {
     //   this.i = this.i + 1;
     //   return this.i
     // }
     // console.log(poll.pop());
     // console.log(poll);
-  }
+  // }
 
 }

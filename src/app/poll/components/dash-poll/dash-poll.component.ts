@@ -11,11 +11,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class DashPollComponent implements OnInit {
   user$;
   typePollByIndex$;
+  responseValues$;
 
   dataPoll: any = [];
   allData: any = [];
   arrData: any = [];
   questionPoll: any = [];
+  arrResponseValues: any = [];
 
   id: { 
     uidUser: string, 
@@ -26,6 +28,7 @@ export class DashPollComponent implements OnInit {
   emailUser: string;
   uidModify: string;
   flag: boolean = true;
+  poll: string;
 
   titlePoll: string;
 
@@ -49,11 +52,27 @@ export class DashPollComponent implements OnInit {
       }
       this.typePollByIndex$ = this.pollService.getTypePollsByIndex(this.id.uidUser, this.id.idPoll);
       this.typePollByIndex$.subscribe(x => {
+        console.log(x[1].poll1);
+      })
+      this.typePollByIndex$.subscribe(x => {
+        console.log(x);
         this.titlePoll = x[0].title;
         this.questionPoll = x[1];
+        this.poll = this.questionPoll.poll1;
+
         this.allData = x[2];
       })
     })
+
+    this.responseValues$ = this.pollService.getResponseValues();
+    this.responseValues$.subscribe(x => {
+      this.arrResponseValues = x;
+    })
+    
+  }
+
+  next() {
+  
   }
 
   save(pollData) {

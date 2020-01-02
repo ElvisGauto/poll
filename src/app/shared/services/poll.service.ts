@@ -44,4 +44,8 @@ export class PollService {
     return this.db.object(`/typePolls/${uid}/${poll}/2/${position}`).update(display);
   }
 
+  getResponseValues() {
+    return this.db.object(`/responseValues/stateOfAgree`);
+  }
+
 }

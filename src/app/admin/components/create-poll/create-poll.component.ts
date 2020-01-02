@@ -21,6 +21,9 @@ export class CreatePollComponent implements OnInit {
   flag: boolean = true;
   iterator: string;
 
+  numberRandom: number;
+  numberComplete: number;
+
   arrPoll: any = [];
   arrTitle: any = [];
   arrComplete: any = [];
@@ -40,6 +43,7 @@ export class CreatePollComponent implements OnInit {
         this.uidModify = this.uid.slice(5, -5);
         this.uidName = user.displayName + this.uidModify;
       }
+      
       this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
       this.typePoll$.subscribe(data => {
         this.iterator = data.length;
@@ -47,6 +51,7 @@ export class CreatePollComponent implements OnInit {
           this.arrComplete = data;
         }
       })
+      this.numberRandom = Math.floor(Math.random()*9000000 + 100) + 1000000;
     })
   }
 
@@ -60,15 +65,13 @@ export class CreatePollComponent implements OnInit {
   }
 
   add(poll) {
-    // this.iterator = this.iterator * 284;
-    // let pancho = this.iterator.concat(String(2*876));
     this.arrTitle.push({
       title: poll.titlePoll
     });
 
     this.arrTitle.push(poll);
     delete this.arrTitle[1].titlePoll
-    this.pollService.addPolls(this.uidModify,`poll${this.iterator}` , this.arrTitle);
+    this.pollService.addPolls(this.uidModify,`poll${this.numberRandom}` , this.arrTitle);
     
     this.router.navigate(['/pollGloballogic']);
   }

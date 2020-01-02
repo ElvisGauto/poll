@@ -24,7 +24,9 @@
                     }
                 }
                 &__divButton {
-                    text-align: center;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
                 }
             }
         }
