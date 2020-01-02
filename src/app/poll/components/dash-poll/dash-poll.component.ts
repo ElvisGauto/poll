@@ -76,31 +76,31 @@ export class DashPollComponent implements OnInit {
   }
 
   save(pollData) {
-    // let dataObj = new Date().toISOString().replace('T', ' ').slice(0, -5);
-    // let date = dataObj;
+    let dataObj = new Date().toISOString().replace('T', ' ').slice(0, -5);
+    let date = dataObj;
     
-    // this.arrData.push({
-    //   email: this.emailUser,
-    //   date: date
-    // });
+    this.arrData.push({
+      email: this.emailUser,
+      date: date
+    });
 
     this.arrData.push(pollData);
-    console.log(this.arrData[0].poll1);
-    // if(this.allData === undefined) {
-    //   this.allData = [];
-    //   this.allData.push(this.arrData);
-    // } else {
-    //   this.allData.push(this.arrData);
-    // }
+    // console.log(this.arrData[0].poll1);
+    if(this.allData === undefined) {
+      this.allData = [];
+      this.allData.push(this.arrData);
+    } else {
+      this.allData.push(this.arrData);
+    }
 
-    // this.arrData.push({
-    //   display: false
-    // });
-    // this.pollService.sendPoll(this.id.uidUser, this.id.idPoll, this.allData);
+    this.arrData.push({
+      display: false
+    });
+    this.pollService.sendPoll(this.id.uidUser, this.id.idPoll, this.allData);
 
-    // if (!confirm('Gracias por completar la encuesta. Saludos!')) return;
+    if (!confirm('Gracias por completar la encuesta. Saludos!')) return;
 
-    // this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 
 }
