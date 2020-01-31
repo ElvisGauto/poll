@@ -18,7 +18,7 @@ export class CreatePollComponent implements OnInit {
   uidName: string;
   title: string;
   iterador: string;
-  flag: boolean = true;
+  flag = true;
   iterator: string;
 
   numberRandom: number;
@@ -38,21 +38,21 @@ export class CreatePollComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.auth.user$;
     this.user$.subscribe(user => {
-      if(user) {
+      if (user) {
         this.uid = user.uid;
         this.uidModify = this.uid.slice(5, -5);
         this.uidName = user.displayName + this.uidModify;
       }
-      
+
       this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
       this.typePoll$.subscribe(data => {
         this.iterator = data.length;
-        if(data.$value !== null) {
+        if (data.$value !== null) {
           this.arrComplete = data;
         }
-      })
-      this.numberRandom = Math.floor(Math.random()*9000000 + 100) + 1000000;
-    })
+      });
+      this.numberRandom = Math.floor(Math.random() * 9000000 + 100) + 1000000;
+    });
   }
 
   moreQuestion() {
@@ -70,9 +70,9 @@ export class CreatePollComponent implements OnInit {
     });
 
     this.arrTitle.push(poll);
-    delete this.arrTitle[1].titlePoll
-    this.pollService.addPolls(this.uidModify,`poll${this.numberRandom}` , this.arrTitle);
-    
+    delete this.arrTitle[1].titlePoll;
+    this.pollService.addPolls(this.uidModify, `poll${this.numberRandom}` , this.arrTitle);
+
     this.router.navigate(['/pollGloballogic']);
   }
 

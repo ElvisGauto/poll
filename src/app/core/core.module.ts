@@ -13,7 +13,6 @@ import { PollModule } from '../poll/poll.module';
   declarations: [
     LoginComponent,
     PollGloballogicComponent,
-  
   ],
   imports: [
     CommonModule,
@@ -26,8 +25,7 @@ import { PollModule } from '../poll/poll.module';
   ],
   exports: [
     LoginComponent,
-    PollGloballogicComponent,
-  
+    PollGloballogicComponent
   ]
 })
 export class CoreModule { }

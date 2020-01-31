@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'view-poll',
   templateUrl: './view-poll.component.html',
   styleUrls: ['./view-poll.component.scss']
@@ -27,7 +28,7 @@ export class ViewPollComponent implements OnInit {
   arrNewPoll = [];
 
   arrAll: any = [];
-  
+
   constructor(
     private auth: AuthService,
     private pollService: PollService,
@@ -37,7 +38,7 @@ export class ViewPollComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.auth.user$;
     this.user$.subscribe(user => {
-      if(user) {
+      if (user) {
         this.email = user.email;
         this.uid = user.uid;
         this.uidModify = this.uid.slice(5, -5);
@@ -45,8 +46,8 @@ export class ViewPollComponent implements OnInit {
       this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
       this.typePoll$.subscribe(x => {
         this.arrAll = x;
-      })
-    })
+      });
+    });
   }
   goToPoll(i) {
     this.router.navigate([`/admin/encuesta/${this.uidModify}/${this.arrAll[i].$key}`]);
@@ -58,22 +59,22 @@ export class ViewPollComponent implements OnInit {
 
   copyPoll(i) {
     const inputShared = document.createElement('input');
-    let routeUidName = `encuesta/${this.uidModify}/${this.arrAll[i].$key}`;
+    const routeUidName = `encuesta/${this.uidModify}/${this.arrAll[i].$key}`;
 
-    let url = window.location.href;
-    if(url.includes('pollGloballogic')) {
+    const url = window.location.href;
+    if (url.includes('pollGloballogic')) {
       this.urlCopied = url.replace('pollGloballogic', routeUidName);
-    } 
-    inputShared.value = this.urlCopied;     
+    }
+    inputShared.value = this.urlCopied;
 
     document.body.appendChild(inputShared);
-    
+
     inputShared.focus();
     inputShared.select();
 
     document.execCommand('copy');
     document.body.removeChild(inputShared);
-    
+
     alert('¡El link de la encuesta ha sido copiado!');
   }
 }

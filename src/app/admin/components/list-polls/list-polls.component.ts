@@ -3,17 +3,18 @@ import { PollService } from 'src/app/shared/services/poll.service';
 import { AdminService } from '../../services/admin.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'list-polls',
   templateUrl: './list-polls.component.html',
   styleUrls: ['./list-polls.component.scss']
 })
 export class ListPollsComponent implements OnInit {
 
-  @Input('position') position;
-  @Input('uidModify') uidModify;
+  @Input() position;
+  @Input() uidModify;
 
-  flagShowData: boolean = false;
-  flag: boolean = false;
+  flagShowData = false;
+  flag = false;
 
   display: boolean;
 
@@ -30,7 +31,7 @@ export class ListPollsComponent implements OnInit {
     this.pollService.getPolls(this.uidModify, this.position).subscribe(data => {
       this.listPolls = data[2];
       this.dataQuestion = data[1];
-    })
+    });
   }
 
   displayData(i) {
@@ -40,8 +41,8 @@ export class ListPollsComponent implements OnInit {
     });
     this.adminService.displayData(this.uidModify, this.position, i, this.arrDisplay[0]);
     this.arrDisplay = [];
-  }  
-  
+  }
+
   hideData(i) {
     this.display = false;
     this.arrDisplay.push({
@@ -49,6 +50,6 @@ export class ListPollsComponent implements OnInit {
     });
     this.adminService.displayData(this.uidModify, this.position, i, this.arrDisplay[0]);
     this.arrDisplay = [];
-  }  
+  }
 
 }

@@ -2,21 +2,21 @@ import { Component, OnInit, Input } from '@angular/core';
 import { StatisticsService } from '../../services/statistics.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'statistics',
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
 
-  @Input('position') position;
-  @Input('uidModify') uidModify;
+  @Input() position;
+  @Input() uidModify;
 
-  totalmenteDeAcuerdo: number = 1;
+  totalmenteDeAcuerdo = 1;
 
   valuePolls$;
   valuePollsWachin: any = [];
-  i: number = 0;
-  
+  i = 0;
 
   constructor(
     private statisticsService: StatisticsService
@@ -26,11 +26,11 @@ export class StatisticsComponent implements OnInit {
     this.valuePolls$ = this.statisticsService.displayData(this.uidModify, this.position);
     this.valuePolls$.subscribe(x => {
       this.valuePollsWachin = x[2];
-      let pancho = this.valuePollsWachin.map(function(x) {
-        return x[1]
-      })
+      this.valuePollsWachin.map( value => {
+        return value[1];
+      });
       // console.log(pancho);
-    })
+    });
   }
 
   // getStatistics(poll) {

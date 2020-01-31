@@ -20,7 +20,7 @@ export class PollGloballogicComponent implements OnInit {
   uid: string;
   uidModify: string;
 
-  flag: boolean = true;
+  flag = true;
 
   dataPoll: any = [];
 
@@ -37,7 +37,7 @@ export class PollGloballogicComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.authUser.user$;
     this.user$.subscribe(user => {
-      if(user) {
+      if (user) {
         this.email = user.email;
         this.uid = user.uid;
         this.uidModify = this.uid.slice(5, -5);
@@ -45,10 +45,10 @@ export class PollGloballogicComponent implements OnInit {
       this.typePoll$ = this.pollService.getTypePolls(this.uidModify);
 
       this.getUser$ = this.userService.getUser(this.uid);
-    })
+    });
   }
 
   createPoll(): void {
-    this.router.navigate(['admin/create-poll'])
+    this.router.navigate(['admin/create-poll']);
   }
 }

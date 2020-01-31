@@ -9,17 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  user$: Observable<firebase.User>
+  user$: Observable<firebase.User>;
 
   constructor(
     private afAuth: AngularFireAuth,
     private route: ActivatedRoute
-  ) { 
+  ) {
     this.user$ = afAuth.authState;
   }
 
   login(pancho) {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/pollGloballogic';
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/pollGloballogic';
     localStorage.setItem('returnUrl', returnUrl);
 
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
@@ -28,5 +28,4 @@ export class AuthService {
   singOut() {
     this.afAuth.auth.signOut();
   }
-  
 }

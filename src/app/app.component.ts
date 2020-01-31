@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './shared/services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './shared/services/user.service';
@@ -9,14 +9,14 @@ import { SpinnerService } from './shared/services/spinner.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   user$;
   showSpinner = false;
-  
+
   constructor(
-    private auth: AuthService, 
-    private router: Router, 
+    private auth: AuthService,
+    private router: Router,
     private userService: UserService,
     private spinner: SpinnerService
     ) {
@@ -32,7 +32,7 @@ export class AppComponent {
       if (user) {
         this.userService.saveUser(user);
 
-        let returnUrl = localStorage.getItem('returnUrl');
+        const returnUrl = localStorage.getItem('returnUrl');
         localStorage.removeItem('returnUrl');
         if (returnUrl) {
           this.router.navigateByUrl(returnUrl);

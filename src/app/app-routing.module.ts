@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'admin/encuesta/:uidUser/:idPoll', component: AdminDashPollComponent, canActivate: [AuthGuardService]},
 
   { path: 'encuesta/:uidUser/:idPoll', component: DashPollComponent, canActivate: [AuthGuardService]},
-  
+
   { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 

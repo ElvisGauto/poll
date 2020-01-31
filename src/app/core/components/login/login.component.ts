@@ -10,15 +10,15 @@ import { SpinnerService } from 'src/app/shared/services/spinner.service';
 })
 export class LoginComponent {
 
-  pancho: boolean = false;
+  pancho = false;
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private spinner: SpinnerService
-  ) { 
+  ) {
     this.spinner.showSpinner();
-    
+
     this.authService.user$.subscribe( user => {
       this.spinner.hideSpinner();
     });

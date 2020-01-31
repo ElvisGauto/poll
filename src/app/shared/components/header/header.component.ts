@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input('flag') flag;
+  @Input() flag;
 
   user$;
 
@@ -25,16 +25,16 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.auth.user$.subscribe(user => {
-      if(user) {
+      if (user) {
         this.uid = user.uid;
         this.user$ = this.userService.getUser(this.uid);
       }
-    })
+    });
   }
 
   singOut() {
     this.auth.singOut();
-    
+
     this.router.navigate(['/login']);
   }
 
